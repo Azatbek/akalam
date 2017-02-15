@@ -7,9 +7,9 @@
      @else
         <article class="one_third">
      @endif
-          <h6 class="heading font-x1"> @if(app()->getLocale()=='ru') {{$item->title}} @else {{$item->title_kk}} @endif</h6>
+          <h6 class="heading font-x1">{{$item->title}}</h6>
           <a href="#"><img src="{{$item->poster}}" alt=""></a>
-          <p class="btmspace-30">@if(app()->getLocale()=='ru') {!! $item->anons !!} @else {!! $item->anons_kk !!} @endif [&hellip;]</p>
+          <p class="btmspace-30">{!! $item->anons !!} [&hellip;]</p>
           <footer class="btmspace-15"><a href="#">{{trans(('default.read_more'))}} &raquo;</a></footer>
         </article>
     @endforeach

@@ -1,9 +1,9 @@
 <?php
 namespace App\Models;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Category;
 
-class News extends Authenticatable
+class News extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -24,6 +24,10 @@ class News extends Authenticatable
     ];
 
     public static function getNews($limit = 0){
-      return News::orderBy('id', 'desc')->take($limit)->paginate(10);
+      if(app()->getLocale()=='ru') {
+        return News::orderBy('id', 'desc')->take($limit)->select('title', 'description', 'anons', 'poster')->paginate(10);
+      } else {
+        return News::orderBy('id', 'desc')->take($limit)->select('title_kk as title', 'description_kk as description', 'anons_kk as anons', 'poster')->paginate(10);
+      }
     }
 }
