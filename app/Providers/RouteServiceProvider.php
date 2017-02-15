@@ -35,11 +35,16 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        $this->mapApiRoutes();
 
-        $this->mapWebRoutes();
+        $locale = $this->app['request']->segment(1);
+        $this->app->setLocale($locale);
 
-        //
+        Route::group(['namespace' => $this->namespace, 'prefix' => $locale], function($router) {
+            
+            $this->mapApiRoutes();
+            $this->mapWebRoutes();
+        });
+
     }
 
     /**
