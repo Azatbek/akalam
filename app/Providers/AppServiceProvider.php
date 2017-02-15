@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+      view()->composer(
+        ['widgets.home_news'],
+        'App\Http\Composers\HomeComposer'
+      );
     }
 
     /**

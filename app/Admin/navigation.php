@@ -19,7 +19,8 @@ use SleepingOwl\Admin\Navigation\Page;
 //
 // // or
 //
-// AdminSection::addMenuPage(\App\User::class)
+AdminSection::addMenuPage(\App\User::class);
+AdminSection::addMenuPage(\App\Models\News::class);
 
 return [
     [
@@ -32,8 +33,8 @@ return [
         'title' => 'Information',
         'icon'  => 'fa fa-exclamation-circle',
         'url'   => route('admin.information'),
-    ],
-
+    ]
+  ];
     // Examples
     // [
     //    'title' => 'Content',
@@ -86,4 +87,3 @@ return [
     //        ]
     //    ]
     // ]
-];

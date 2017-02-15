@@ -40,7 +40,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->app->setLocale($locale);
 
         Route::group(['namespace' => $this->namespace, 'prefix' => $locale], function($router) {
-            
+
             $this->mapApiRoutes();
             $this->mapWebRoutes();
         });

@@ -78,7 +78,7 @@ return [
     */
 
     'locale' => 'ru',
-
+    'skip_locales' => ['admin'],
     'locales' => ['ru', 'kk'],
 
     /*

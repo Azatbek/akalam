@@ -24,9 +24,9 @@ class LocalesRedirect {
 			else{
 				app()->setLocale('ru');
 			}
-		
+
 		return $next($request);
-	
+
 	}
 
 }
