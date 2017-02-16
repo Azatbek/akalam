@@ -6,12 +6,16 @@ AdminSection::registerModel(Lyrics::class, function (ModelConfiguration $model) 
     $model->setTitle('Работы авторов');
     $model->setIcon('fa fa-file');
     $model->onDisplay(function () {
-        $display = AdminDisplay::table()->setColumns([
+        $display = AdminDisplay::table()->with('category')->setColumns([
             AdminColumn::text('title')->setLabel('Название'),
-            AdminColumn::text('lang')->setLabel('Язык'),
-            AdminColumn::text('category')->setLabel('Категория'),
+            AdminColumn::custom('lang', function ($instance) {
+                   return $instance->lang ? 'На русском' : 'На казахском';
+                })->setLabel('Язык публикации'),
+            AdminColumn::text('category.name')->setLabel('Категория'),
             AdminColumn::text('author')->setLabel('Автор'),
-            AdminColumn::text('is_published')->setLabel('Статус активности')
+            AdminColumn::custom('is_published', function ($instance) {
+                   return $instance->is_published ? 'Опубликовано' : 'Не опубликовано';
+                })->setLabel('Статус активности')
         ]);
         $display->paginate(15);
         return $display;
