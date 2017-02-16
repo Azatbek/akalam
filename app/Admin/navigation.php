@@ -19,10 +19,11 @@ use SleepingOwl\Admin\Navigation\Page;
 //
 // // or
 //
-AdminSection::addMenuPage(\App\Models\Page::class);
-AdminSection::addMenuPage(\App\Models\News::class);
-AdminSection::addMenuPage(\App\User::class);
-AdminSection::addMenuPage(\App\Models\Category::class);
+AdminSection::addMenuPage(\App\Models\Page::class)->setPriority(1);
+AdminSection::addMenuPage(\App\Models\News::class)->setPriority(2);
+AdminSection::addMenuPage(\App\Models\Lyrics::class)->setPriority(3);
+AdminSection::addMenuPage(\App\Models\Category::class)->setPriority(4);
+AdminSection::addMenuPage(\App\User::class)->setPriority(5);
 return [
     [
         'title' => 'Dashboard',

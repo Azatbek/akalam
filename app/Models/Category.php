@@ -28,9 +28,12 @@ class Category extends Model
     public function parent() {
       return $this->belongsTo('App\Models\Category', 'parent_id');
     }
-
     public static function getCategoriesWithChilds(){
       $categories = Category::where('parent_id', null)->with('subcategory')->get();
+      return $categories;
+    }
+    public static function getHomeCategories(){
+      $categories = Category::where('parent_id', 1)->get();
       return $categories;
     }
 }

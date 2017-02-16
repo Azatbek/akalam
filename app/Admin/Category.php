@@ -4,7 +4,7 @@ use SleepingOwl\Admin\Model\ModelConfiguration;
 use SleepingOwl\Admin\Display\Column\Lists;
 AdminSection::registerModel(Category::class, function (ModelConfiguration $model) {
     $model->setTitle('Категории');
-    $model->setIcon('fa-folder-o');
+    $model->setIcon('fa fa-folder-o');
     $model->onDisplay(function () {
         $parent = new Category;
         $display = AdminDisplay::table()->with('parent')->setColumns([

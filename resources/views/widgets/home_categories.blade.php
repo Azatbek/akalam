@@ -1,18 +1,27 @@
 <div class="wrapper row3">
-  <section class="hoc container clear"> 
+  <section class="hoc container clear">
     <!-- ################################################################################################ -->
     <div class="sectiontitle center">
       <h2 class="heading">Morbi rhoncus quam eget</h2>
       <p>Massa eleifend aliquet cras eu elit eget ipsum vehicula rutrum</p>
     </div>
     <ul class="nospace group services">
-      <li class="one_third first">
-        <article><a href="#"><i class="fa fa-leaf"></i></a>
-          <h6 class="heading">Vulputate et ac nisl</h6>
-          <p>In iaculis dolor praesent in ex sed purus venenatis aliquet fusce aliquet iaculis pulvinar donec [&hellip;]</p>
-          <footer><a href="#">Read More &raquo;</a></footer>
-        </article>
-      </li>
+      @foreach($categories as $key=>$cat)
+        @if($loop->first)
+          <li class="one_third first">
+        @else
+          <li class="one_third">
+        @endif
+            <article><a href="#"><i class="fa fa-leaf"></i></a>
+              <h6 class="heading">{{$cat->name}}</h6>
+              <ul>
+                <li></li>
+                <li></li>
+              </ul>
+            </article>
+          </li>
+      @endforeach
+
       <li class="one_third">
         <article><a href="#"><i class="fa fa-skyatlas"></i></a>
           <h6 class="heading">Integer pretium orci</h6>
