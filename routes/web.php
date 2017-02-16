@@ -11,6 +11,17 @@
 |
 */
 
-  Route::get('/', function () {
-      return view('home');
+  Route::group(['middleware' => 'locale'], function () {
+
+    $langPrefixes = array_merge(config('app.locales'), ['']);
+
+    foreach ($langPrefixes as $lang)
+    {
+        Route::get($lang .'/', function () {
+            return view('home');
+        });
+        Route::get($lang . '/news/{id}', [
+            'uses' => 'NewsController@show'
+        ]);
+    }
   });
