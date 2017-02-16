@@ -26,7 +26,7 @@ AdminSection::addMenuPage(\App\Models\Category::class)->setPriority(4);
 AdminSection::addMenuPage(\App\User::class)->setPriority(5);
 return [
     [
-        'title' => 'Dashboard',
+        'title' => 'Административная панель',
         'icon'  => 'fa fa-dashboard',
         'url'   => route('admin.dashboard'),
     ]

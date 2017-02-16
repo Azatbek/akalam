@@ -14,3 +14,10 @@
   Route::get('/', function () {
       return view('home');
   });
+  Route::get('/home', function() {
+      return view('pages.news');
+  });
+  $prefix = app()->getLocale();
+  Route::group(['prefix' => $prefix], function(){
+    Route::get('/news/{id}', 'NewsController@show');
+  });
