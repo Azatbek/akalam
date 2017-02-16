@@ -10,7 +10,7 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'name', 'parent_id'
     ];
 
     /**
@@ -22,12 +22,15 @@ class Category extends Model
         'updated_at',
     ];
 
-    public static function subcategories(){
-      return Category::hasMany('Category', 'parent_id');
+    public function subcategory() {
+      return $this->hasMany('App\Models\Category', 'parent_id');
+    }
+    public function parent() {
+      return $this->belongsTo('App\Models\Category', 'parent_id');
     }
 
     public static function getCategoriesWithChilds(){
-      $categories = Category::where('parent_id', 0)->with('subcategories')->get();
+      $categories = Category::where('parent_id', null)->with('subcategory')->get();
       return $categories;
     }
 }

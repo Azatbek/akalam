@@ -3,12 +3,12 @@ use App\Models\News;
 use SleepingOwl\Admin\Model\ModelConfiguration;
 AdminSection::registerModel(News::class, function (ModelConfiguration $model) {
     $model->setTitle('Новости');
-    $model->setIcon('fa fa-news');
+    $model->setIcon('fa fa-newspaper-o');
     $model->onDisplay(function () {
         $display = AdminDisplay::table()->setColumns([
             AdminColumn::text('title')->setLabel('Заголовок'),
             AdminColumn::text('anons')->setLabel('Анонс'),
-            AdminColumn::text('poster')->setLabel('Изображение'),
+            AdminColumn::image('poster')->setLabel('Изображение'),
         ]);
         $display->paginate(15);
         return $display;

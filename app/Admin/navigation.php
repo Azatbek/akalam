@@ -19,20 +19,15 @@ use SleepingOwl\Admin\Navigation\Page;
 //
 // // or
 //
-AdminSection::addMenuPage(\App\User::class);
+AdminSection::addMenuPage(\App\Models\Page::class);
 AdminSection::addMenuPage(\App\Models\News::class);
-
+AdminSection::addMenuPage(\App\User::class);
+AdminSection::addMenuPage(\App\Models\Category::class);
 return [
     [
         'title' => 'Dashboard',
         'icon'  => 'fa fa-dashboard',
         'url'   => route('admin.dashboard'),
-    ],
-
-    [
-        'title' => 'Information',
-        'icon'  => 'fa fa-exclamation-circle',
-        'url'   => route('admin.information'),
     ]
   ];
     // Examples
