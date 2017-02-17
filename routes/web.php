@@ -26,5 +26,8 @@
         Route::get($lang . '/lyrics/{id}', [
             'uses' => 'LyricsController@show'
         ]);
+        Route::post($lang . '/lyrics/store', [
+            'uses' => 'LyricsController@store'
+        ]);
     }
   });

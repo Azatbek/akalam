@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lyrics;
-
+use Redirect;
+use Session;
+use Request as Ajax;
 class LyricsController extends Controller
 {
     /**
@@ -17,17 +19,6 @@ class LyricsController extends Controller
       $lyrics = Lyrics::getLyrics(0);
       return view('pages.lyrics_list', ['lyrics'=>$lyrics]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -36,9 +27,19 @@ class LyricsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      if(Ajax::ajax()) {
+        $data = $request->all();
+        $lyrics = new Lyrics;
+        if($lyrics->fill($data)) {
+      		return array('status'=>'success', 'message'=>trans('default.home.success-message'));
+        } else {
+          return array('status'=>'error', 'message'=>trans('default.home.error-message'));
+        }
+      } else {
+          return abort(404);
+      }
     }
-    
+
     /**
      * Display the specified resource.
      *

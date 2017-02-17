@@ -10,7 +10,7 @@ class Lyrics extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'lang', 'content', 'author', 'is_published'
+        'title', 'lang', 'content', 'category_id', 'author', 'is_published'
     ];
 
     /**
