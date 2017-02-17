@@ -28,12 +28,21 @@ class Category extends Model
     public function parent() {
       return $this->belongsTo('App\Models\Category', 'parent_id');
     }
-    public static function getCategoriesWithChilds(){
-      $categories = Category::where('parent_id', null)->with('subcategory')->get();
-      return $categories;
+    public function lyrics() {
+      $locale = app()->getLocale();
+      if ($locale == 'ru') {
+        return $this->hasMany('App\Models\Lyrics', 'category_id');
+      } else {
+        return $this->hasMany('App\Models\Lyrics', 'category_id');
+      }
     }
-    public static function getHomeCategories(){
-      $categories = Category::where('parent_id', 1)->get();
-      return $categories;
+    public static function getHomeSelectedCategories($cats=[]) {
+        $result = self::with(['lyrics' => function($q) {
+                    $locale = app()->getLocale();
+                    if($locale == 'ru') $q->where('lang', 1)->where('is_published', 1)->take(5);
+                    else $q->where('lang', 0)->where('is_published', 1)->take(5);
+                  }])
+                ->whereIn('id', $cats)->orderBy('id', 'asc')->get();
+        return $result;
     }
 }

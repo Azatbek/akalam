@@ -21,7 +21,7 @@ class CreateLyricsTable extends Migration
             $table->string('author');
             $table->integer('is_published');
             $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
           });
     }

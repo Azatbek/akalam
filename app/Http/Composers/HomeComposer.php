@@ -7,7 +7,7 @@ class HomeComposer
     public function compose($view)
     {
         $view->with('news', News::getNews(6));
-        $view->with('categories', Category::getHomeCategories());
+        $view->with('categories', Category::getHomeSelectedCategories([2,3,4,5]));
     }
 }
 
