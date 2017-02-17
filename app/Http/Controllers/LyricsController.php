@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Lyrics;
 
 class LyricsController extends Controller
 {
@@ -37,7 +38,7 @@ class LyricsController extends Controller
     {
         //
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -46,8 +47,8 @@ class LyricsController extends Controller
      */
     public function show($id)
     {
-      if(app()->getLocale()=='ru') $news = Lyrics::find($id)->with('category')->first();
-      else $lyrics = Lyrics::find($id)->with('category')->select('title', 'content', 'created_at', 'hits')->first();
+      if(app()->getLocale()=='ru') $news = Lyrics::findOrFail($id)->with('category')->first();
+      else $lyrics = Lyrics::findOrFail($id)->with('category')->select('title', 'content', 'created_at', 'hits')->first();
       /* counter */
       $lyrics = Lyrics::find($id);
       $lyrics->hits = $lyrics->hits+1;

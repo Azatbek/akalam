@@ -1,27 +1,19 @@
 <div class="sidebar one_quarter">
   <!-- ################################################################################################ -->
-  <h6>Lorem ipsum dolor</h6>
+  <h6>Категории</h6>
   <nav class="sdb_holder">
     <ul>
-      <li><a href="#">Navigation - Level 1</a></li>
-      <li><a href="#">Navigation - Level 1</a>
-        <ul>
-          <li><a href="#">Navigation - Level 2</a></li>
-          <li><a href="#">Navigation - Level 2</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Navigation - Level 1</a>
-        <ul>
-          <li><a href="#">Navigation - Level 2</a></li>
-          <li><a href="#">Navigation - Level 2</a>
-            <ul>
-              <li><a href="#">Navigation - Level 3</a></li>
-              <li><a href="#">Navigation - Level 3</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li><a href="#">Navigation - Level 1</a></li>
+      @foreach($categories as $cat)
+        <li><a href="#">@if(app()->getLocale()=='ru') {{$cat['name']}} @else {{$cat['name_kk']}} @endif</a>
+          @if(isset($cat['childs']))
+          <ul>
+            @foreach($cat['childs'] as $child)
+              <li><a href="#">@if(app()->getLocale()=='ru') {{$child['name']}} @else {{$child['name_kk']}} @endif</a></li>
+            @endforeach
+          </ul>
+          @endif
+        </li>
+      @endforeach
     </ul>
   </nav>
   <div class="sdb_holder">

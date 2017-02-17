@@ -23,5 +23,8 @@
         Route::get($lang . '/news/{id}', [
             'uses' => 'NewsController@show'
         ]);
+        Route::get($lang . '/lyrics/{id}', [
+            'uses' => 'LyricsController@show'
+        ]);
     }
   });

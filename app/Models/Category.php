@@ -22,6 +22,19 @@ class Category extends Model
         'updated_at',
     ];
 
+    public static function buildTree(array $elements, $parentId = null) {
+      $result = array();
+      foreach ($elements as $element) {
+          if($element['parent_id'] == $parentId) {
+              $children = self::buildTree($elements, $element['id']);
+              $element['childs'] = [];
+              if ($children) $element['childs'] = $children;
+              $result[$element['id']] = $element;
+          }
+      }
+      return array_values($result);
+    }
+
     public function subcategory() {
       return $this->hasMany('App\Models\Category', 'parent_id');
     }
@@ -36,6 +49,12 @@ class Category extends Model
         return $this->hasMany('App\Models\Lyrics', 'category_id');
       }
     }
+    public static function getCategoriesTree() {
+      $elements = Category::get()->toArray();
+      $tree = self::buildTree($elements);
+      return $tree;
+    }
+
     public static function getHomeSelectedCategories($cats=[]) {
         $locale = app()->getLocale();
         $result = self::with(['lyrics' => function($q) use($locale) {
