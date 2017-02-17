@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\News;
 
-class NewsController extends Controller
+class LyricsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-      $news = News::getNews(0);
-      return view('pages.news_list', ['news'=>$news]);
+      $lyrics = Lyrics::getLyrics(0);
+      return view('pages.lyrics_list', ['lyrics'=>$lyrics]);
     }
 
     /**
@@ -47,14 +46,14 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        /* counter */
-        $news = News::find($id);
-        $news->hits = $news->hits+1;
-        $news->save();
+      /* counter */
+      $lyrics = Lyrics::find($id);
+      $lyrics->hits = $lyrics->hits+1;
+      $lyrics->save();
 
-        if(app()->getLocale()=='ru') $news = News::find($id)->first();
-        else $news = News::find($id)->select('title_kk as title', 'description_kk as description', 'poster', 'created_at', 'hits')->first();
-        return view('pages.news', ['news'=>$news]);
+      if(app()->getLocale()=='ru') $news = Lyrics::find($id)->with('category')->first();
+      else $lyrics = Lyrics::find($id)->with('category')->select('title', 'content', 'created_at', 'hits')->first();
+      return view('pages.lyrics', ['lyrics'=>$lyrics]);
     }
 
     /**

@@ -26,4 +26,17 @@ class Lyrics extends Model
       return $this->belongsTo('App\Models\Category', 'category_id');
     }
 
+    public static function getLyrics($limit = 0) {
+      if(app()->getLocale()=='ru') {
+        return News::orderBy('id', 'desc')->take($limit)->where('lang', 1)->select('title', 'content')->paginate(12);
+      } else {
+        return News::orderBy('id', 'desc')->take($limit)->where('lang', 0)->select('title', 'content')->paginate(12);
+      }
+    }
+    public static function bestLyrics() {
+      $lyrics = new Lyrics;
+      $locale = app()->getLocale();
+      if($locale == 'ru') return $lyrics->where('lang', 1)->where('is_published', 1)->orderBy('hits', 'desc')->take(5)->get();
+      else return $lyrics->where('lang', 0)->where('is_published', 1)->orderBy('hits', 'desc')->take(5)->get();
+    }
 }

@@ -25,17 +25,12 @@
     </ul>
   </nav>
   <div class="sdb_holder">
-    <h6>Lorem ipsum dolor</h6>
-    <address>
-    Full Name<br>
-    Address Line 1<br>
-    Address Line 2<br>
-    Town/City<br>
-    Postcode/Zip<br>
-    <br>
-    Tel: xxxx xxxx xxxxxx<br>
-    Email: <a href="#">contact@domain.com</a>
-    </address>
+    <h6>{{trans('default.sidebar.best_lyrics')}}</h6>
+    <ul>
+      @foreach($lyrics as $item)
+      <li>{{$item->title}}</li>
+      @endforeach
+    </ul>
   </div>
   <div class="sdb_holder">
     <article>

@@ -17,6 +17,10 @@ class AppServiceProvider extends ServiceProvider
         ['widgets.home_news', 'widgets.home_categories'],
         'App\Http\Composers\HomeComposer'
       );
+      view()->composer(
+        ['parts.sidebar_right'],
+        'App\Http\Composers\SidebarComposer'
+      );
     }
 
     /**
