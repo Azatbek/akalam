@@ -46,13 +46,12 @@ class LyricsController extends Controller
      */
     public function show($id)
     {
+      if(app()->getLocale()=='ru') $news = Lyrics::find($id)->with('category')->first();
+      else $lyrics = Lyrics::find($id)->with('category')->select('title', 'content', 'created_at', 'hits')->first();
       /* counter */
       $lyrics = Lyrics::find($id);
       $lyrics->hits = $lyrics->hits+1;
       $lyrics->save();
-
-      if(app()->getLocale()=='ru') $news = Lyrics::find($id)->with('category')->first();
-      else $lyrics = Lyrics::find($id)->with('category')->select('title', 'content', 'created_at', 'hits')->first();
       return view('pages.lyrics', ['lyrics'=>$lyrics]);
     }
 

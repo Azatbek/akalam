@@ -13,7 +13,7 @@
           <li class="one_third">
         @endif
             <article><a href="#"><i class="fa fa-leaf"></i></a>
-              <h6 class="heading">{{$cat->name}}</h6>
+              <h6 class="heading">@if(app()->getLocale()=='ru') {{$cat->name}} @else {{$cat->name_kk}} @endif</h6>
               <ul>
                 @foreach ($cat->lyrics as $child)
                   <li>{{$child->title}}</li>

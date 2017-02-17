@@ -7,10 +7,10 @@
      @else
         <article class="one_third">
      @endif
-          <h6 class="heading font-x1">{{$item->title}}</h6>
-          <a href="#"><img src="{{$item->poster}}" alt=""></a>
+          <a href="{{url('/'.app()->getLocale().'/news/'.$item->id)}}"><h6 class="heading font-x1">{{$item->title}}</h6></a>
+          <img src="{{$item->poster}}" alt="">
           <p class="btmspace-30">{!! $item->anons !!} [&hellip;]</p>
-          <footer class="btmspace-15"><a href="#">{{trans(('default.read_more'))}} &raquo;</a></footer>
+          <footer class="btmspace-15"><a href="{{url('/'.app()->getLocale().'/news/'.$item->id)}}">{{trans(('default.read_more'))}} &raquo;</a></footer>
         </article>
     @endforeach
     <!-- ################################################################################################ -->

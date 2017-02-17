@@ -47,13 +47,11 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        /* counter */
+        if(app()->getLocale()=='ru') $news = News::find($id)->first();
+        else $news = News::find($id)->select('title_kk as title', 'description_kk as description', 'poster', 'created_at', 'hits')->first();
         $news = News::find($id);
         $news->hits = $news->hits+1;
         $news->save();
-
-        if(app()->getLocale()=='ru') $news = News::find($id)->first();
-        else $news = News::find($id)->select('title_kk as title', 'description_kk as description', 'poster', 'created_at', 'hits')->first();
         return view('pages.news', ['news'=>$news]);
     }
 

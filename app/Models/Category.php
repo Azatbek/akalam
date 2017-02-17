@@ -37,12 +37,12 @@ class Category extends Model
       }
     }
     public static function getHomeSelectedCategories($cats=[]) {
-        $result = self::with(['lyrics' => function($q) {
-                    $locale = app()->getLocale();
+        $locale = app()->getLocale();
+        $result = self::with(['lyrics' => function($q) use($locale) {
                     if($locale == 'ru') $q->where('lang', 1)->where('is_published', 1)->take(5);
                     else $q->where('lang', 0)->where('is_published', 1)->take(5);
-                  }])
-                ->whereIn('id', $cats)->orderBy('id', 'asc')->get();
-        return $result;
+                  }]);
+                  $result->whereIn('id', $cats)->orderBy('id', 'asc');
+        return $result->get();
     }
 }
