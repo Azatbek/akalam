@@ -25,9 +25,9 @@ class News extends Model
 
     public static function getNews($limit = 0){
       if(app()->getLocale()=='ru') {
-        return News::orderBy('id', 'desc')->take($limit)->select('title', 'description', 'anons', 'poster')->paginate(10);
+        return News::orderBy('id', 'desc')->take($limit)->select('title', 'description', 'anons', 'poster')->paginate(12);
       } else {
-        return News::orderBy('id', 'desc')->take($limit)->select('title_kk as title', 'description_kk as description', 'anons_kk as anons', 'poster')->paginate(10);
+        return News::orderBy('id', 'desc')->take($limit)->select('title_kk as title', 'description_kk as description', 'anons_kk as anons', 'poster')->paginate(12);
       }
     }
 }

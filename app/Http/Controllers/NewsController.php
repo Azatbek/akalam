@@ -14,7 +14,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+      $news = News::getNews(0);
+      return view('pages.news_list', ['news'=>$news]);
     }
 
     /**
@@ -46,8 +47,9 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $news = News::find($id)->first();
-        return view('pages.news', $news);
+        if(app()->getLocale()=='ru') $news = News::find($id)->first();
+        else $news = News::find($id)->select('title_kk as title', 'description_kk as description', 'poster', 'created_at')->first();
+        return view('pages.news', ['news'=>$news]);
     }
 
     /**
