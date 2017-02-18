@@ -5,7 +5,7 @@ AdminSection::registerModel(News::class, function (ModelConfiguration $model) {
     $model->setTitle('Новости');
     $model->setIcon('fa fa-newspaper-o');
     $model->onDisplay(function () {
-        $display = AdminDisplay::table()->setColumns([
+        $display = AdminDisplay::datatables()->setColumns([
             AdminColumn::text('title')->setLabel('Заголовок'),
             AdminColumn::text('anons')->setLabel('Анонс'),
             AdminColumn::image('poster')->setLabel('Изображение'),

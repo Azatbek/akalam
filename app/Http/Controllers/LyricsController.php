@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lyrics;
+use App\Models\Category;
 use Redirect;
 use Session;
 use Request as Ajax;
@@ -31,6 +32,7 @@ class LyricsController extends Controller
         $data = $request->all();
         $lyrics = new Lyrics;
         if($lyrics->fill($data)) {
+            $lyrics->save();
       		return array('status'=>'success', 'message'=>trans('default.home.success-message'));
         } else {
           return array('status'=>'error', 'message'=>trans('default.home.error-message'));
@@ -48,15 +50,28 @@ class LyricsController extends Controller
      */
     public function show($id)
     {
-      if(app()->getLocale()=='ru') $news = Lyrics::findOrFail($id)->with('category')->first();
-      else $lyrics = Lyrics::findOrFail($id)->with('category')->select('title', 'content', 'created_at', 'hits')->first();
+      if(app()->getLocale()=='ru') $lyrics = Lyrics::where('id', $id)->where('is_published', 1)->with('category')->where('is_published', 1)->first();
+      else $lyrics = Lyrics::where('id', $id)->where('is_published', 1)->with('category')->select('title', 'content', 'created_at', 'hits')->first();
       /* counter */
-      $lyrics = Lyrics::find($id);
-      $lyrics->hits = $lyrics->hits+1;
-      $lyrics->save();
+      if(!empty($lyrics)) {
+          $lyric = Lyrics::find($id);
+          $lyric->hits = $lyric->hits+1;
+          $lyric->save();
+      } else abort(404);    
       return view('pages.lyrics', ['lyrics'=>$lyrics]);
     }
 
+
+    public function showCategory($id) 
+    {
+        $category = Category::getSelectedCategory($id);
+        return view('pages.category', ['category'=>$category]);
+    }
+
+    public static function getAllCategories() {
+        $categories = Category::buildTree(Category::get()->toArray());
+        return view('pages.categories', ['categories'=>$categories]);
+    }
     /**
      * Show the form for editing the specified resource.
      *

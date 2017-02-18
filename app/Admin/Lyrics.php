@@ -6,7 +6,7 @@ AdminSection::registerModel(Lyrics::class, function (ModelConfiguration $model) 
     $model->setTitle('Работы авторов');
     $model->setIcon('fa fa-file');
     $model->onDisplay(function () {
-        $display = AdminDisplay::table()->with('category')->setColumns([
+        $display = AdminDisplay::datatables()->with('category')->setColumns([
             AdminColumn::text('title')->setLabel('Название'),
             AdminColumn::custom('lang', function ($instance) {
                    return $instance->lang ? 'На русском' : 'На казахском';

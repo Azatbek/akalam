@@ -29,14 +29,18 @@
 		<script type="text/javascript">
 		$(document).ready(function(){
 		  $('.btn-send').click(function(){
+		  	var form = document.forms.namedItem("sendForm"); 
+            var formdata = new FormData(form);
+            console.log(formdata);
 		    $.ajax({
-		      url: "{{'/'.app()->getLocale().'/lyrics/store'}}",
-		      type: "post",
-		      data: {'title':$('input[name=title]').val(), '_token': $('input[name=_token]').val(), 'lang':$('input[name=lang]').val(),
-		            'content':$('input[name=content]').val(), 'category_id': $('input[name=category_id]').val(), 'author':$('input[name=author]').val()
-		      },
+		       url: "{{'/'.app()->getLocale().'/lyrics/store'}}",
+		       async: true,
+	           type: "POST",
+	           contentType: false, // high importance!
+	           data: formdata, // high importance!
+	           processData: false, // high importance!
 		      success: function(data){
-		        alert(data);
+		        alert(1);
 		      }
 		    });
 		  });

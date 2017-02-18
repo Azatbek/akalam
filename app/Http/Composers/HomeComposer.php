@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Composers;
 use App\Models\News;
+use App\Models\Partner;
 use App\Models\Category;
 class HomeComposer
 {
@@ -8,6 +9,7 @@ class HomeComposer
     {
         $view->with('news', News::getNews(6));
         $view->with('categories', Category::getHomeSelectedCategories([2,3,4,5]));
+        $view->with('partners', Partner::getPartners());
     }
 }
 

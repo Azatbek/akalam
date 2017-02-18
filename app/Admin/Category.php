@@ -7,7 +7,7 @@ AdminSection::registerModel(Category::class, function (ModelConfiguration $model
     $model->setIcon('fa fa-folder-o');
     $model->onDisplay(function () {
         $parent = new Category;
-        $display = AdminDisplay::table()->with('parent')->setColumns([
+        $display = AdminDisplay::datatables()->with('parent')->setColumns([
             AdminColumn::link('id')->setLabel('ID'),
             AdminColumn::text('name')->setLabel('Название'),
             AdminColumn::relatedLink('parent.name', 'Относится к:')

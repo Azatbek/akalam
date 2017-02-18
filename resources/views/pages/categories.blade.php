@@ -1,3 +1,5 @@
+@extends('app')
+@section('content')
 <div class="wrapper row3">
   <section class="hoc container clear">
     <!-- ################################################################################################ -->
@@ -12,13 +14,15 @@
         @else
           <li class="one_third">
         @endif
-            <article><a href="#"><i class="fa fa-leaf"></i></a>
-              <h4 class="heading">@if(app()->getLocale()=='ru') {{$cat->name}} @else {{$cat->name_kk}} @endif</h4>
+            <article><i class="fa fa-leaf"></i>
+              <a href="{{url('/'.app()->getLocale().'/category/'.$cat['id'])}}"><h6 class="heading">@if(app()->getLocale()=='ru') {{$cat['name']}} @else {{$cat['name_kk']}} @endif</h6></a>
+              @if(count($cat['childs'])>0)
               <ul>
-                @foreach ($cat->lyrics as $child)
-                  <li>{{$child->title}}</li>
+                @foreach ($cat['childs'] as $child)
+                  <li><a href="{{url('/'.app()->getLocale().'/category/'.$cat['id'])}}">@if(app()->getLocale()=='ru') {{$child['name']}} @else {{$child['name_kk']}} @endif</a></li>
                 @endforeach
               </ul>
+              @endif
             </article>
           </li>
       @endforeach
@@ -26,3 +30,4 @@
     <!-- ################################################################################################ -->
   </section>
 </div>
+@endsection

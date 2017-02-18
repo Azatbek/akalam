@@ -1,14 +1,14 @@
 <div class="sidebar one_quarter">
   <!-- ################################################################################################ -->
-  <h6>Категории</h6>
+  <h4>Категории</h4>
   <nav class="sdb_holder">
     <ul>
       @foreach($categories as $cat)
-        <li><a href="#">@if(app()->getLocale()=='ru') {{$cat['name']}} @else {{$cat['name_kk']}} @endif</a>
+        <li><a href="{{url('/'.app()->getLocale().'/category/'.$cat['id'])}}">@if(app()->getLocale()=='ru') {{$cat['name']}} @else {{$cat['name_kk']}} @endif</a>
           @if(isset($cat['childs']))
           <ul>
             @foreach($cat['childs'] as $child)
-              <li><a href="#">@if(app()->getLocale()=='ru') {{$child['name']}} @else {{$child['name_kk']}} @endif</a></li>
+              <li><a href="{{url('/'.app()->getLocale().'/category/'.$child['id'])}}">@if(app()->getLocale()=='ru') {{$child['name']}} @else {{$child['name_kk']}} @endif</a></li>
             @endforeach
           </ul>
           @endif
@@ -17,10 +17,10 @@
     </ul>
   </nav>
   <div class="sdb_holder">
-    <h6>{{trans('default.sidebar.best_lyrics')}}</h6>
+    <h4>{{trans('default.sidebar.best_lyrics')}}</h4>
     <ul>
       @foreach($lyrics as $item)
-      <li>{{$item->title}}</li>
+      <li><a href="{{url('/'.app()->getLocale().'/lyrics/'.$item->id)}}">{{$item->title}}</a></li>
       @endforeach
     </ul>
   </div>

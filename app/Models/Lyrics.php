@@ -28,9 +28,9 @@ class Lyrics extends Model
 
     public static function getLyrics($limit = 0) {
       if(app()->getLocale()=='ru') {
-        return News::orderBy('id', 'desc')->take($limit)->where('lang', 1)->select('title', 'content')->paginate(12);
+        return Lyrics::orderBy('id', 'desc')->take($limit)->where('lang', 1)->select('id', 'title', 'content', 'created_at', 'hits')->paginate(12);
       } else {
-        return News::orderBy('id', 'desc')->take($limit)->where('lang', 0)->select('title', 'content')->paginate(12);
+        return Lyrics::orderBy('id', 'desc')->take($limit)->where('lang', 0)->select('id', 'title', 'content', 'created_at', 'hits')->paginate(12);
       }
     }
     public static function bestLyrics() {

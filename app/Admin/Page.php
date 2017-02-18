@@ -5,7 +5,7 @@ AdminSection::registerModel(Page::class, function (ModelConfiguration $model) {
     $model->setTitle('Страницы');
     $model->setIcon('fa fa-file');
     $model->onDisplay(function () {
-        $display = AdminDisplay::table()->setColumns([
+        $display = AdminDisplay::datatables()->setColumns([
             AdminColumn::link('id')->setLabel('ID'),
             AdminColumn::text('title')->setLabel('Заголовок'),
             AdminColumn::text('slug')->setLabel('ЧПУ'),

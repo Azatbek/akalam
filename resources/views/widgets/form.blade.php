@@ -5,7 +5,7 @@
       <div class="inspace-30 row3">
         <h6 class="heading">{{trans('default.home.form-title')}}</h6>
         <p class="btmspace-30">{{trans('default.home.form-description')}}</p>
-        {!! Form::open(['url' => '/'.app()->getLocale().'/lyrics/store']) !!}
+        {!! Form::open(['url' => '/'.app()->getLocale().'/lyrics/store', 'name' => 'sendForm']) !!}
             <fieldset>
               {!! Form::text('title', null, ['placeholder' => 'Имя', 'required']) !!}
               {!! Form::select('lang', [0=>'Қазақша', 1=>'Русский'], null, ['placeholder' => 'На каком языке?', 'class' => 'form-control', 'required']) !!}

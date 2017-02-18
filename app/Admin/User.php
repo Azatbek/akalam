@@ -5,7 +5,7 @@ AdminSection::registerModel(User::class, function (ModelConfiguration $model) {
     $model->setTitle('Пользователи');
     $model->setIcon('fa fa-user');
     $model->onDisplay(function () {
-        $display = AdminDisplay::table()->setColumns([
+        $display = AdminDisplay::datatables()->setColumns([
             AdminColumn::link('email')->setLabel('email')->setWidth('400px'),
             AdminColumn::text('first_name')->setLabel('Имя'),
             AdminColumn::text('last_name')->setLabel('Фамилия')

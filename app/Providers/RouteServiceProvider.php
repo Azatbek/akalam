@@ -35,10 +35,11 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        $locale = $this->app['request']->segment(1);
-        $this->app->setLocale($locale);
+          $locale = $this->app['request']->segment(1);
+          if($locale == 'ru' || $locale == 'kk') $this->app->setLocale($locale);
+          else $this->app->setLocale('ru');
           $this->mapApiRoutes();
-            $this->mapWebRoutes();
+          $this->mapWebRoutes();
     }
 
     /**
