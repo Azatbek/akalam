@@ -14,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
       view()->composer(
-        ['widgets.home_news', 'widgets.home_categories','parts.footer'],
+        ['widgets.home_news', 'widgets.home_categories','parts.footer','widgets.slider'],
         'App\Http\Composers\HomeComposer'
       );
       view()->composer(

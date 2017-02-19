@@ -2,7 +2,6 @@
 @section('content')
 <div class="wrapper row3">
   <main class="hoc container clear">
-  
     <div class="content three_quarter first" >
     @foreach($lyrics as $lyric)
     <div style="margin-bottom: 90px;">

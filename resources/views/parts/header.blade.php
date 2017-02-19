@@ -2,7 +2,7 @@
   <header id="header" class="hoc clear">
     <!-- ################################################################################################ -->
     <div id="logo" class="fl_left">
-      <h1><a href="/{{app()->getLocale()}}">Artland</a></h1>
+      <h1><a href="/{{app()->getLocale()}}">Akalam</a></h1>
     </div>
     <nav id="mainav" class="fl_right">
       <ul class="clear">
@@ -27,8 +27,8 @@
         <li><a href="/{{app()->getLocale()}}/audiobooks">{{trans('default.home.audio')}}</a></li>
         <li><a class="drop" href="#">{{trans('default.home.lang')}}</a>
           <ul>
-            <li><a href="/kk">Казахский</a></li>
-            <li><a href="/ru">Русский</a></li>
+            <li><a href="/{{app()->getLocale()}}/language/kk">{{trans('default.home.langs.kk')}}</a></li>
+            <li><a href="/{{app()->getLocale()}}/language/ru">{{trans('default.home.langs.ru')}}</a></li>
           </ul>
         </li>
       </ul>

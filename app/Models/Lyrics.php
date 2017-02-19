@@ -39,4 +39,10 @@ class Lyrics extends Model
       if($locale == 'ru') return $lyrics->where('lang', 1)->where('is_published', 1)->orderBy('hits', 'desc')->take(5)->get();
       else return $lyrics->where('lang', 0)->where('is_published', 1)->orderBy('hits', 'desc')->take(5)->get();
     }
+    public static function lastLyrics() {
+      $lyrics = new Lyrics;
+      $locale = app()->getLocale();
+      if($locale == 'ru') return $lyrics->where('lang', 1)->where('is_published', 1)->orderBy('created_at', 'desc')->take(5)->get();
+      else return $lyrics->where('lang', 0)->where('is_published', 1)->orderBy('created_at', 'desc')->take(5)->get();
+    }
 }

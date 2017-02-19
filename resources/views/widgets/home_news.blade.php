@@ -1,5 +1,6 @@
 <div class="wrapper row2">
   <div class="hoc container clear">
+  <center><h2 class="heading">{{trans('default.home.news')}}</h2></center>
     @foreach($news as $item)
     <!-- ################################################################################################ -->
      @if ($loop->first)

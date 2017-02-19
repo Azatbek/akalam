@@ -2,7 +2,7 @@
 use App\Models\Partner;
 use SleepingOwl\Admin\Model\ModelConfiguration;
 AdminSection::registerModel(Partner::class, function (ModelConfiguration $model) {
-    $model->setTitle('Споносоры');
+    $model->setTitle('Спонсоры');
     $model->setIcon('fa fa-money');
     $model->onDisplay(function () {
         $display = AdminDisplay::datatables()->setColumns([

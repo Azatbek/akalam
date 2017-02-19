@@ -21,7 +21,8 @@ AdminSection::registerModel(News::class, function (ModelConfiguration $model) {
             AdminFormElement::ckeditor('anons_kk', 'Анонс на казахском'),
             AdminFormElement::ckeditor('description', 'Описание'),
             AdminFormElement::ckeditor('description_kk', 'Описание на казахском'),
-            AdminFormElement::image('poster', 'Рисунок/Сурет')
+            AdminFormElement::image('poster', 'Рисунок/Сурет'),
+            AdminFormElement::checkbox('press', 'На слайдере')
         );
         return $form;
     });

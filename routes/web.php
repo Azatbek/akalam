@@ -19,7 +19,7 @@
         Route::get($lang .'/', function () {
             return view('home');
         });
-         Route::get($lang . '/news', [
+        Route::get($lang . '/news', [
             'uses' => 'NewsController@index'
         ]);
         Route::get($lang . '/news/{id}', [
@@ -31,6 +31,15 @@
         Route::get($lang . '/lyrics/{id}', [
             'uses' => 'LyricsController@show'
         ]);
+        Route::get($lang . '/audiobooks', [
+            'uses' => 'AudiobookController@index', 'as' => 'AudioRoute'
+        ]);
+        Route::get($lang . '/audiobooks/{cat}', [
+            'uses' => 'AudiobookController@index', 'as' => 'AudioRoute'
+        ]);
+        Route::get($lang . '/audiobooks/{cat}/{id}', [
+            'uses' => 'AudiobookController@show', 'as' => 'AudioRoute'
+        ]);
         Route::post($lang . '/lyrics/store', [
             'uses' => 'LyricsController@store'
         ]);
@@ -40,6 +49,23 @@
         Route::get($lang . '/categories', [
             'uses' => 'LyricsController@getAllCategories'
         ]);
+
+        Route::get($lang .'/language/{language}', function($language){
+
+            $prev = explode('/',app('request')->create(URL::previous())->server('REQUEST_URI'));
+            foreach ($prev as $value) {
+                    $prev[1] = $language;           
+            }
+            $route = implode('/',$prev);
+            app()->setLocale($language);
+            if(isset($prev[2]) && $prev[2]=='language'){
+                return redirect($language);
+            } else {
+                return redirect($route);
+            }
+        });
+        
+
         //login routes
 
         // Authentication Routes...

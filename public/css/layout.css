@@ -31,13 +31,20 @@ File: Layout CSS
 
 /* Page Intro
 --------------------------------------------------------------------------------------------------------------- */
-#pageintro{padding:200px 0;}
+#pageintro{padding:20px 0;}
 
-#pageintro article{max-width:80%;}
+#pageintro article{
+	max-width: 60%;
+    text-align: left;
+    padding-bottom: -20px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+    color:#fff;
+    background: rgba(76, 76, 76, 0.5);
+}
 #pageintro article *{text-transform:uppercase; line-height:normal;}
 #pageintro article .heading{margin:0 0 50px 0; padding:0; font-size:64px;}
 #pageintro article p:first-of-type{margin:0 0 35px 0; font-size:26px; letter-spacing:5px;}
-#pageintro article footer{margin-top:80px;}
 
 /* Flexslider - Absolute minimum CSS required for current setup */
 .slides, .slides > li, .flex-control-nav{margin:0; padding:0; list-style:none;}
@@ -70,7 +77,6 @@ File: Layout CSS
 .services article *{margin:0 0 15px 0;}
 .services article > :last-child{margin-bottom:0;}
 .services article i{display:block; position:absolute; top:0; left:0; width:50px; height:50px; line-height:48px; margin:0; border:1px solid; text-align:center; font-size:20px;}
-.services article .heading{font-size:1.2rem;}
 
 /* Comments */
 #comments ul{margin:0 0 40px 0; padding:0; list-style:none;}
@@ -250,15 +256,15 @@ td{border-width:0 1px;}
 /* Colours
 --------------------------------------------------------------------------------------------------------------- */
 body{color:#CBCBCB; background-color:#222222;}
-a{color:#A95236;}
+a{color:#e78e26;}
 a:active, a:focus{background:transparent;}/* IE10 + 11 Bugfix - prevents grey background */
 hr, .borderedbox{border-color:#D7D7D7;}
 label span{color:#FF0000; background-color:inherit;}
-input:focus, textarea:focus, *:required:focus{border-color:#A95236;}
+input:focus, textarea:focus, *:required:focus{border-color:#e78e26;}
 .overlay{color:#FFFFFF; background-color:inherit;}
 .overlay::after{color:inherit; background-color:rgba(0,0,0,.55);}
 
-.btn, .btn.inverse:hover{color:#FFFFFF; background-color:#A95236; border-color:#A95236;}
+.btn, .btn.inverse:hover{color:#FFFFFF; background-color:#e78e26; border-color:#e78e26;}
 .btn:hover, .btn.inverse{color:inherit; background-color:transparent; border-color:inherit;}
 
 
@@ -283,43 +289,43 @@ input:focus, textarea:focus, *:required:focus{border-color:#A95236;}
 
 /* Content Area */
 .services article i{color:inherit; border-color:inherit;}
-.services article:hover i{color:#FFFFFF; background-color:#A95236;}
+.services article:hover i{color:#FFFFFF; background-color:#e78e26;}
 
 
 /* Call Back */
 #callback input{color:#474747; background-color:#FFFFFF; border-color:#D7D7D7;}
-#callback input:focus{border-color:#A95236;}
-#callback button{color:#FFFFFF; background-color:#A95236;}
+#callback input:focus{border-color:#e78e26;}
+#callback button{color:#FFFFFF; background-color:#e78e26;}
 
 
 /* Footer */
 #footer nav a{color:inherit;}
-#footer nav li:first-child a, #footer nav a:hover{color:#A95236;}
+#footer nav li:first-child a, #footer nav a:hover{color:#e78e26;}
 #footer .linklist li{border-color:rgba(0,0,0,.1);}
 
 
 /* Navigation */
 #mainav li a{color:inherit;}
-#mainav .active a, #mainav a:hover, #mainav li:hover > a{color:#A95236; background-color:inherit;}
+#mainav .active a, #mainav a:hover, #mainav li:hover > a{color:#e78e26; background-color:inherit;}
 #mainav li li a, #mainav .active li a{color:#FFFFFF; background-color:rgba(0,0,0,.6); border-color:rgba(0,0,0,.6);}
-#mainav li li:hover > a, #mainav .active .active > a{color:#FFFFFF; background-color:#A95236;}
+#mainav li li:hover > a, #mainav .active .active > a{color:#FFFFFF; background-color:#e78e26;}
 #mainav form select{color:#FFFFFF; background-color:#000000; border-color:rgba(255,255,255,.2);}
 
 #breadcrumb a{color:inherit; background-color:inherit;}
-#breadcrumb li:last-child a{color:#A95236;}
+#breadcrumb li:last-child a{color:#e78e26;}
 
 .container .sidebar nav a{color:inherit; border-color:#D7D7D7;}
-.container .sidebar nav a:hover{color:#A95236;}
+.container .sidebar nav a:hover{color:#e78e26;}
 
 .pagination a, .pagination strong{border-color:#D7D7D7;}
-.pagination .current *{color:#FFFFFF; background-color:#A95236;}
+.pagination .current *{color:#FFFFFF; background-color:#e78e26;}
 
-#backtotop{color:#FFFFFF; background-color:#A95236;}
+#backtotop{color:#FFFFFF; background-color:#e78e26;}
 
 
 /* Tables + Comments */
 table, th, td, #comments .avatar, #comments input, #comments textarea{border-color:#D7D7D7;}
-#comments input:focus, #comments textarea:focus, #comments *:required:focus{border-color:#A95236;}
+#comments input:focus, #comments textarea:focus, #comments *:required:focus{border-color:#e78e26;}
 th{color:#FFFFFF; background-color:#373737;}
 tr, #comments li, #comments input[type="submit"], #comments input[type="reset"]{color:inherit; background-color:#FBFBFB;}
 tr:nth-child(even), #comments li:nth-child(even){color:inherit; background-color:#F7F7F7;}
