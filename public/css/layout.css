@@ -53,7 +53,7 @@ File: Layout CSS
 .flexslider .slides > li{display:none; -webkit-backface-visibility:hidden;}
 .flex-viewport{max-height:2000px; transition:all 1s ease;}
 .loading .flex-viewport{max-height:300px;}
-.flex-control-nav{display:block; position:absolute; bottom:-160px; width:100%; text-align:center;}
+.flex-control-nav{display:block; position:absolute; bottom:-25px; width:100%; text-align:center;}
 .flex-control-nav li{display:inline-block; margin:0 5px;}
 .flex-control-paging li a{display:block; width:11px; height:11px; cursor:pointer; text-indent:-9999px; border:2px solid; border-radius:50%;}
 .flex-control-paging li a.flex-active{cursor:default;}
