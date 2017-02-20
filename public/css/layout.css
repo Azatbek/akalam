@@ -25,9 +25,9 @@ File: Layout CSS
 --------------------------------------------------------------------------------------------------------------- */
 #header{}
 
-#header #logo{margin:30px 0 0 0;}
+#header #logo{margin:10px 0 0 0;}
 #header #logo h1{margin:0; padding:0; font-size:22px; text-transform:uppercase;}
-
+#header #logo img{width:150px;padding-bottom: 10px;}
 
 /* Page Intro
 --------------------------------------------------------------------------------------------------------------- */
@@ -158,7 +158,7 @@ nav ul, nav ol{margin:0; padding:0; list-style:none;}
 #mainav .drop::after, #mainav li li .drop::after, #breadcrumb li a::after, .sidebar nav a::after{position:absolute; font-family:"FontAwesome"; font-size:10px; line-height:10px;}
 
 /* Top Navigation */
-#mainav{}
+#mainav{padding-top:25px;}
 #mainav ul.clear{margin-top:3px;}
 #mainav ul{text-transform:uppercase;}
 #mainav ul ul{z-index:9999; position:absolute; width:180px; text-transform:none;}
@@ -252,6 +252,17 @@ td{border-width:0 1px;}
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
 
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap: wrap;
+}
+.row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
 
 /* Colours
 --------------------------------------------------------------------------------------------------------------- */
@@ -262,7 +273,7 @@ hr, .borderedbox{border-color:#D7D7D7;}
 label span{color:#FF0000; background-color:inherit;}
 input:focus, textarea:focus, *:required:focus{border-color:#e78e26;}
 .overlay{color:#FFFFFF; background-color:inherit;}
-.overlay::after{color:inherit; background-color:rgba(0,0,0,.55);}
+.overlay::after{color:inherit;}
 
 .btn, .btn.inverse:hover{color:#FFFFFF; background-color:#e78e26; border-color:#e78e26;}
 .btn:hover, .btn.inverse{color:inherit; background-color:transparent; border-color:inherit;}
@@ -356,7 +367,7 @@ table a, #comments a{background-color:inherit;}
 @media screen and (max-width:900px){
 	.hoc{max-width:90%;}
 
-	#header{padding:30px 0 15px;}
+	#header{padding:10px 0 15px;}
 	#header #logo{margin:0;}
 
 	#mainav{}

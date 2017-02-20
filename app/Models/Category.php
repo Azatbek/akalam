@@ -44,9 +44,9 @@ class Category extends Model
     public function lyrics() {
       $locale = app()->getLocale();
       if ($locale == 'ru') {
-        return $this->hasMany('App\Models\Lyrics', 'category_id');
+        return $this->hasMany('App\Models\Lyrics', 'category_id')->take(5);
       } else {
-        return $this->hasMany('App\Models\Lyrics', 'category_id');
+        return $this->hasMany('App\Models\Lyrics', 'category_id')->take(5);
       }
     }
     public static function getCategoriesTree() {
@@ -57,12 +57,14 @@ class Category extends Model
 
     public static function getHomeSelectedCategories($cats=[]) {
         $locale = app()->getLocale();
-        $result = self::with(['lyrics' => function($q) use($locale) {
-                    if($locale == 'ru') $q->where('lang', 1)->where('is_published', 1)->take(5);
-                    else $q->where('lang', 0)->where('is_published', 1)->take(5);
-                  }]);
-                  $result->whereIn('id', $cats)->orderBy('id', 'asc');
-        return $result->get();
+
+        foreach ($cats as $item) {
+            $result[] = Category::where('id',$item)->with(['lyrics' => function($q) use($locale) {
+                    if($locale == 'ru') $q->where('lang', 1)->where('is_published', 1)->get();
+                    else $q->where('lang', 0)->where('is_published', 1)->get();
+                  }])->get();
+        }
+        return $result;
     }
 
     public static function getSelectedCategory($category_id = 0) {

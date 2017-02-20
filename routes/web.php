@@ -19,6 +19,9 @@
         Route::get($lang .'/', function () {
             return view('home');
         });
+        Route::get($lang . '/page/{slug}', [
+            'uses' => 'PageController@show'
+        ]);
         Route::get($lang . '/news', [
             'uses' => 'NewsController@index'
         ]);

@@ -18,8 +18,9 @@ AdminSection::registerModel(Page::class, function (ModelConfiguration $model) {
         $form = AdminForm::panel()->addBody(
             AdminFormElement::text('title', 'Заголовок')->required(),
             AdminFormElement::text('title_kk', 'Заголовок на казахском'),
+            AdminFormElement::text('slug', 'ЧПУ')->required(),
             AdminFormElement::ckeditor('content', 'Контент')->required(),
-            AdminFormElement::ckeditor('content_kk', 'Контент'),
+            AdminFormElement::ckeditor('content_kk', 'Контент на казахском'),
             AdminFormElement::select('display_on_menu', 'Показать на главной?', [1=>'Да, показать в меню', 0=>'Нет, не показывать'])->required()
         );
         return $form;
