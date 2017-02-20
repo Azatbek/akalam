@@ -7,13 +7,9 @@
       <h2 class="heading">{{trans('default.category.title')}}</h2>
       <p>{{trans('default.category.description')}}</p>
     </div>
-    <ul class="nospace group services">
+    <div class="row">
       @foreach($categories as $key=>$cat)
-        @if($loop->first)
-          <li class="one_third first">
-        @else
-          <li class="one_third">
-        @endif
+          <div class="col-md-4 col-lg-4 col-sm-12 services">
             <article><i class="fa fa-leaf"></i>
               <a href="{{url('/'.app()->getLocale().'/category/'.$cat['id'])}}"><h6 class="heading">@if(app()->getLocale()=='ru') {{$cat['name']}} @else {{$cat['name_kk']}} @endif</h6></a>
               @if(count($cat['childs'])>0)
@@ -24,9 +20,9 @@
               </ul>
               @endif
             </article>
-          </li>
+          </div>
       @endforeach
-    </ul>
+    </div>
     <!-- ################################################################################################ -->
   </section>
 </div>

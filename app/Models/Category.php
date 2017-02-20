@@ -70,8 +70,8 @@ class Category extends Model
     public static function getSelectedCategory($category_id = 0) {
         $locale = app()->getLocale();
         $result = self::with(['lyrics' => function($q) use($locale) {
-                    if($locale == 'ru') $q->where('lang', 1)->where('is_published', 1)->take(5);
-                    else $q->where('lang', 0)->where('is_published', 1)->take(5);
+                    if($locale == 'ru') $q->where('lang', 1)->where('is_published', 1)->take(40);
+                    else $q->where('lang', 0)->where('is_published', 1)->take(40);
                   }]);
                   $result->where('id', $category_id);
         return $result->first();

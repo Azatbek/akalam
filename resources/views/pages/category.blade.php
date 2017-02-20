@@ -2,14 +2,15 @@
 @section('content')
 <div class="wrapper row3">
   <main class="hoc container clear">
-    <div class="content three_quarter first">
-      <h1>{{$category->name}}</h1>
-      @foreach($category->lyrics as $lyrics)
-      <div class="pull-right">{{trans('news.news_page.views')}}: {{$lyrics->hits}} | {{trans('news.news_page.published')}}: {{$lyrics->created_at}}</div>
-      <h1>{{$lyrics->title}}</h1>
-      <div>{!!$lyrics->content!!}</div>
-      <span class="small pull-right">@if($lyrics->lang == 1) Публикация на русском @else Қазақ тілінде жазылған @endif</span>
-      @endforeach
+    <div class="content three_quarter first" >
+    @foreach($category->lyrics as $lyric)
+    <div style="margin-bottom: 90px;">
+      <div class="pull-right">{{trans('news.news_page.views')}}: {{$lyric->hits}} | {{trans('news.news_page.published')}}: {{$lyric->created_at}}</div>
+      <h1><a href="{{url('/'.app()->getLocale().'/lyrics/'.$lyric->id)}}">{{$lyric->title}}</a></h1>
+      <div>{{str_limit(strip_tags($lyric->content), 250)}}</div>
+      <span class="small pull-right"><a class="btn btn-sm btn-default" href="{{url('/'.app()->getLocale().'/lyrics/'.$lyric->id)}}">{{trans('default.read_more')}}</a></span>
+    </div>
+    @endforeach
     </div>
     @include('parts.sidebar_right')
     <div class="clear"></div>

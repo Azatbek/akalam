@@ -12,7 +12,7 @@
               <br/>
               {!! Form::textarea('content', null, ['placeholder' => trans('default.form.content'), 'class' => 'form-control', 'required']) !!}
               <br/>
-              {!! Form::select('category_id', App\Models\Category::orderBy('parent_id')->pluck('name', 'id'), null, ['placeholder' => trans('default.form.category'), 'class' => 'form-control', 'required']) !!}
+              {!! Form::select('category_id', App\Models\Category::where('parent_id', 12)->pluck('name', 'id'), null, ['placeholder' => trans('default.form.category'), 'class' => 'form-control', 'required']) !!}
               <br/>
               {!! Form::text('author', null, ['placeholder' => trans('default.form.name'), 'class' => 'form-control', 'required']) !!}
               <div class="g-recaptcha" data-sitekey="6LexFBYUAAAAAKzu5Iwbh5SENFUbc7u57RBiRYfW"></div>

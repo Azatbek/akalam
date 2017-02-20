@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Akalam</title>
+		<title>{{trans('default.page_title')}}</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<link href="{{ asset('css/layout.css') }}" rel="stylesheet" type="text/css" media="all">
@@ -30,7 +30,7 @@
 		<script type="text/javascript">
 		$(document).ready(function(){
 		  $('.btn-send').click(function(){
-		  	var form = document.forms.namedItem("sendForm"); 
+		  	var form = document.forms.namedItem("sendForm");
             var formdata = new FormData(form);
             console.log(formdata);
 		    $.ajax({

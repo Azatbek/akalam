@@ -14,7 +14,7 @@
     </div>
     @include('parts.sidebar_right')
     <div class="clear"></div>
-    {{$news->render()}}
+    {!!$news->links()!!}
   </main>
 </div>
 @endsection

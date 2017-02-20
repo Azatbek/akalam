@@ -1,6 +1,6 @@
 <?php
 
 Route::get('', ['as' => 'admin.dashboard', function () {
-	$content = 'Define your dashboard here.';
+	$content = 'Система управления сайтом для Akalam.kz';
 	return AdminSection::view($content, 'Dashboard');
 }]);
