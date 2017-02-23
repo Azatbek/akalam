@@ -21,7 +21,8 @@ AdminSection::registerModel(Category::class, function (ModelConfiguration $model
         $form = AdminForm::panel()->addBody(
             AdminFormElement::text('name', 'Название'),
             AdminFormElement::text('name_kk', 'Название на казахском'),
-            AdminFormElement::select('parent_id', 'Относится к категории:', $categories)
+            AdminFormElement::select('parent_id', 'Относится к категории:', $categories),
+            AdminFormElement::checkbox('is_published', 'Отображать на страницах?')
         );
         return $form;
     });

@@ -50,7 +50,7 @@ class Category extends Model
       }
     }
     public static function getCategoriesTree() {
-      $elements = Category::get()->toArray();
+      $elements = Category::where('is_published',1)->get()->toArray();
       $tree = self::buildTree($elements);
       return $tree;
     }
@@ -75,5 +75,25 @@ class Category extends Model
                   }]);
                   $result->where('id', $category_id);
         return $result->first();
+    }
+
+      public function mb_ucfirst($str, $encoding = "UTF-8", $lower_str_end = false) {
+          $first_letter = mb_strtoupper(mb_substr($str, 0, 1, $encoding), $encoding);
+          $str_end = "";
+          if ($lower_str_end) {
+            $str_end = mb_strtolower(mb_substr($str, 1, mb_strlen($str, $encoding), $encoding), $encoding);
+          }
+          else {
+            $str_end = mb_substr($str, 1, mb_strlen($str, $encoding), $encoding);
+          }
+          $str = $first_letter . $str_end;
+          return $str;
+      }
+
+    public function getNameAttribute($value) {
+        return $this->mb_ucfirst(trim(mb_strtolower($value)));
+    }
+    public function getNameKkAttribute($value) {
+        return $this->mb_ucfirst(trim(mb_strtolower($value)));
     }
 }
