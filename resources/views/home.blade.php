@@ -4,4 +4,5 @@
 	@include('widgets.home_news')
 	@include('widgets.home_categories')
 	@include('widgets.form')
+	@include('widgets.contacts')
 @endsection
