@@ -114,13 +114,13 @@ return [
 
     'wysiwyg' => [
         'default' => 'ckeditor',
-
-        /*
-         * See http://docs.ckeditor.com/#!/api/CKEDITOR.config
-         */
-        'ckeditor' => [
-            'height' => 200,
-        ],
+         /*
+          * See http://docs.ckeditor.com/#!/api/CKEDITOR.config
+          */
+         'ckeditor'  => [
+             'height' => 300,
+             'customConfig' => '/js/ckeditor/config.js' // If you want use javascript config
+         ],
 
         /*
          * See https://www.tinymce.com/docs/
