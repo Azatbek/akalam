@@ -37,12 +37,12 @@ class Lyrics extends Model
       $lyrics = new Lyrics;
       $locale = app()->getLocale();
       if($locale == 'ru') return $lyrics->where('lang', 1)->where('is_published', 1)->where('category_id', 'IN', [13,14,15,16,17,18,19])->orderBy('hits', 'desc')->take(5)->get();
-      else return $lyrics->where('lang', 0)->where('is_published', 1)->orderBy('hits', 'desc')->take(5)->get();
+      else return $lyrics->where('lang', 0)->where('is_published', 1)->where('category_id', 'IN', [13,14,15,16,17,18,19])->orderBy('hits', 'desc')->take(5)->get();
     }
     public static function lastLyrics() {
       $lyrics = new Lyrics;
       $locale = app()->getLocale();
       if($locale == 'ru') return $lyrics->where('lang', 1)->where('is_published', 1)->where('category_id', 'IN', [13,14,15,16,17,18,19])->orderBy('created_at', 'desc')->take(5)->get();
-      else return $lyrics->where('lang', 0)->where('is_published', 1)->orderBy('created_at', 'desc')->take(5)->get();
+      else return $lyrics->where('lang', 0)->where('is_published', 1)->where('category_id', 'IN', [13,14,15,16,17,18,19])->orderBy('created_at', 'desc')->take(5)->get();
     }
 }
