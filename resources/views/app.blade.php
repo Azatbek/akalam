@@ -10,7 +10,7 @@
 	<body id="top">
 		<div class="bgded overlay" style="background-image:url('/images/backgrounds/04.png');">
 			@include('parts.header')
-		</div>
+		<!-- END OF BGDED -->
 			@yield('content')
 		<div class="wrapper row4 bgded overlay" style="background-image:url('/images/backgrounds/04.png');">
 			@include('parts.footer')
