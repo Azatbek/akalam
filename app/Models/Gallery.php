@@ -20,4 +20,16 @@ class Gallery extends Model
     protected $hidden = [
         'updated_at',
     ];
+
+    public function images() {
+    	return $this->hasMany('App\Models\Images','gallery_id','id');
+    }
+
+    public static function getGallery($limit = 0){
+      if(app()->getLocale()=='ru') {
+        return Gallery::where('is_published',1)->with('images')->orderBy('id','desc')->paginate(12);
+      } else {
+        return Gallery::where('is_published',1)->with('images')->orderBy('id','desc')->select('id', 'name_kk as name', 'description_kk as description', 'created_at')->paginate(12);
+      }
+    }
 }

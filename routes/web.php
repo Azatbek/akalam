@@ -53,6 +53,13 @@
             'uses' => 'LyricsController@getAllCategories'
         ]);
 
+        Route::get($lang . '/gallery/{id}', [
+            'uses' => 'GalleryController@show'
+        ]);
+        Route::get($lang . '/gallery', [
+            'uses' => 'GalleryController@index'
+        ]);
+
         Route::get($lang .'/language/{language}', function($language){
 
             $prev = explode('/',app('request')->create(URL::previous())->server('REQUEST_URI'));
@@ -74,6 +81,13 @@
             if($template == 'newsimg') {
                 $cacheimage = Image::cache(function($image) use ($img) {
                     return $image->make('images/uploads/'.$img)->fit(306, 169, function ($constraint) {
+                        $constraint->upsize();
+                    });
+                },10);
+            }
+            if($template == 'gallery') {
+                $cacheimage = Image::cache(function($image) use ($img) {
+                    return $image->make('images/uploads/'.$img)->fit(306, 204, function ($constraint) {
                         $constraint->upsize();
                     });
                 },10);

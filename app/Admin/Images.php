@@ -21,7 +21,7 @@ AdminSection::registerModel(Images::class, function (ModelConfiguration $model) 
         $gal = $gal->pluck('name', 'id')->toArray();
         $form = AdminForm::panel()->addBody(
             AdminFormElement::image('image', 'Рисунок/Сурет'),
-            AdminFormElement::select('category_id', 'Галлерея', $gal),
+            AdminFormElement::select('gallery_id', 'Галлерея', $gal),
             AdminFormElement::ckeditor('description', 'Описание'),
             AdminFormElement::ckeditor('description_kk', 'Описание на казахском')
         );
