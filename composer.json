@@ -6,6 +6,8 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "intervention/image": "^2.3",
+        "intervention/imagecache": "^2.3",
         "laravel/framework": "5.3.*",
         "laravelrus/sleepingowl": "4.*@dev"
     },

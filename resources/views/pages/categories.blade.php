@@ -15,7 +15,7 @@
               @if(count($cat['childs'])>0)
               <ul>
                 @foreach ($cat['childs'] as $child)
-                  <li><a href="{{url('/'.app()->getLocale().'/category/'.$cat['id'])}}">@if(app()->getLocale()=='ru') {{$child['name']}} @else {{$child['name_kk']}} @endif</a></li>
+                  <li><a href="{{url('/'.app()->getLocale().'/category/'.$child['id'])}}">@if(app()->getLocale()=='ru') {{$child['name']}} @else {{$child['name_kk']}} @endif</a></li>
                 @endforeach
               </ul>
               @endif

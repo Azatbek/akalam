@@ -18,12 +18,16 @@ class AppServiceProvider extends ServiceProvider
         'App\Http\Composers\HomeComposer@compose'
       );
       view()->composer(
-        ['widgets.home_categories','parts.footer', 'widgets.slider'],
+        ['widgets.home_categories', 'widgets.slider'],
         'App\Http\Composers\HomeComposer@categoriesCompose'
       );
       view()->composer(
         ['parts.sidebar_right'],
         'App\Http\Composers\SidebarComposer'
+      );
+      view()->composer(
+        ['parts.footer'],
+        'App\Http\Composers\HomeComposer@popularNews'
       );
     }
 

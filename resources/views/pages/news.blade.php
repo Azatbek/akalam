@@ -3,13 +3,14 @@
 <div class="wrapper row3">
   <main class="hoc container clear">
     <div class="content three_quarter first">
-      <div class="pull-right">{{trans('news.news_page.views')}}: {{$newsitem->hits}} | {{trans('news.news_page.published')}}: {{$newsitem->created_at}}</div>
-      <h1>{{$newsitem->title}}</h1>
-      @if($newsitem->poster) <img class="imgr borderedbox inspace-5" src="{{asset($newsitem->poster)}}" alt=""> @endif
-      <div>{!!$newsitem->description!!}</div>
+      <h2>{{$newsitem->title}}</h2>
+      <div class="pull-right" style="margin-bottom:10px;">{{trans('news.news_page.views')}}: {{$newsitem->hits}} | {{trans('news.news_page.published')}}: {{$newsitem->created_at}}</div>
+
+      @if($newsitem->poster) <img class="img-responsive " src="{{asset($newsitem->poster)}}" alt=""> @endif
+      <p>{!!$newsitem->description!!}</p>
       <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
       <script src="//yastatic.net/share2/share.js"></script>
-      <div class="ya-share2" data-services="collections,vkontakte,facebook,odnoklassniki,moimir,gplus" data-counter=""></div>
+    <div class="ya-share2" data-services="collections,vkontakte,facebook,odnoklassniki,moimir,gplus" data-counter=""></div>
       <footer>
         <div class="comments" id="comments">
           <div id="disqus_thread"></div>

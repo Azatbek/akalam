@@ -13,7 +13,12 @@ class HomeComposer
     {
       $view->with('press', News::getPressNews(3));
       $view->with('categories', Category::getHomeSelectedCategories([13,14,15,16,17,18,19]));
+    }
+    public function popularNews($view)
+    {
+      $view->with('news', News::getPopularNews(3));
       $view->with('partners', Partner::getPartners());
+
     }
 }
 

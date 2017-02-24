@@ -40,7 +40,7 @@
         @foreach($news as $item)
         <li>
           <article>
-            <h5><a href="#">{{$item->title}}</a></h2>
+            <h5><a href="{{url('/'.app()->getLocale().'/news/'.$item->id)}}">{{$item->title}}</a></h2>
             <time class="font-xs block btmspace-10">{{$item->created_at}}</time>
             <p class="nospace">{{str_limit(strip_tags($item->description), 100)}} [&hellip;]</p>
           </article>

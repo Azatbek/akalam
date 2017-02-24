@@ -67,7 +67,19 @@
                 return redirect($route);
             }
         });
-        
+        Route::get($lang .'/{template}/images/uploads/{img}', function($template,$img){
+
+            $mime = Image::make('images/uploads/'.$img)->mime();
+
+            if($template == 'newsimg') {
+                $cacheimage = Image::cache(function($image) use ($img) {
+                    return $image->make('images/uploads/'.$img)->fit(306, 169, function ($constraint) {
+                        $constraint->upsize();
+                    });
+                },10);
+            }
+            return Response::make($cacheimage, 200, array('Content-Type' => $mime));
+        });
 
         //login routes
 

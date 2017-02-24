@@ -411,3 +411,25 @@ table a, #comments a{background-color:inherit;}
 	#pageintro li article{max-width:none; width:100%;}
 	#pageintro li .heading{font-size:2rem;}
 }
+
+.item {
+	margin-top:10px;
+}
+.item h3 {
+	font-size:20px;
+}
+.content .img-responsive {
+    margin: 0 auto;
+}
+.content p {
+	margin-top:15px;
+}
+.content h2 {
+	margin-bottom:10px;
+}
+hr.style3 {
+	border-top: 1px dashed #8c8b8b;
+}
+.one_third h1 .heading {
+	margin-top:10px;
+}

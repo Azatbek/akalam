@@ -25,7 +25,7 @@
         <li><a href="/{{app()->getLocale()}}/news">{{trans('default.home.news')}}</a></li>
         <li class="drop"><a href="/{{app()->getLocale()}}/lyrics">{{trans('default.home.lyrics')}}</a>
           <ul>
-            <li><a href="{{app()->getLocale()}}/categories">Архив</a></li>
+            <li><a href="/{{app()->getLocale()}}/categories">Архив</a></li>
           </ul>
         </li>
         <li><a href="/{{app()->getLocale()}}/audiobooks">{{trans('default.home.audio')}}</a></li>

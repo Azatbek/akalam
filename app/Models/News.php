@@ -34,7 +34,14 @@ class News extends Model
       if(app()->getLocale()=='ru') {
         return News::orderBy('id', 'desc')->where('press',1)->take($limit)->get();
       } else {
-        return News::orderBy('id', 'desc')->where('press',1)->take($limit)->get();
+        return News::orderBy('id', 'desc')->where('press',1)->select('id', 'title_kk as title', 'description_kk as description', 'anons_kk as anons', 'poster', 'hits', 'created_at')->take($limit)->get();
+      }
+    }
+    public static function getPopularNews($limit = 0){
+      if(app()->getLocale()=='ru') {
+        return News::orderBy('hits', 'desc')->take($limit)->get();
+      } else {
+        return News::orderBy('hits', 'desc')->select('id', 'title_kk as title', 'description_kk as description', 'anons_kk as anons', 'poster', 'hits', 'created_at')->take($limit)->get();
       }
     }
 }

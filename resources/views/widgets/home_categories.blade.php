@@ -6,6 +6,7 @@
       <p>{{trans('default.category.description')}}</p>
     </div>
     <div class="row">
+    @if(isset($categories->lyrics))
       @foreach($categories as $key=>$cat)
       <div class="col-md-4 col-lg-4 col-sm-12 services">
               <article><a href="#"><i class="fa fa-leaf"></i></a>
@@ -18,6 +19,7 @@
               </article>
       </div>
       @endforeach
+      @endif
       </div>
     <!-- ################################################################################################ -->
   </section>
