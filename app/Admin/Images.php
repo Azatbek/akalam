@@ -3,7 +3,7 @@ use App\Models\Images;
 use App\Models\Gallery;
 use SleepingOwl\Admin\Model\ModelConfiguration;
 AdminSection::registerModel(Images::class, function (ModelConfiguration $model) {
-    $model->setTitle('Изображеия галлереи');
+    $model->setTitle('Изображеия галереи');
     $model->setIcon('fa fa-picture-o  ');
     $model->onDisplay(function () {
         $gallery = new Gallery;

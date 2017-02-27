@@ -3,7 +3,7 @@ use App\Models\Gallery;
 use SleepingOwl\Admin\Model\ModelConfiguration;
 use SleepingOwl\Admin\Display\Column\Lists;
 AdminSection::registerModel(Gallery::class, function (ModelConfiguration $model) {
-    $model->setTitle('Галлерея');
+    $model->setTitle('Галерея');
     $model->setIcon('fa fa-file-image-o');
     $model->onDisplay(function () {
         $display = AdminDisplay::datatables()->setColumns([

@@ -14,7 +14,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-      $news = News::getNews(0);
+      $news = News::getNews(0, true);
       return view('pages.news_list', ['news'=>$news]);
     }
 

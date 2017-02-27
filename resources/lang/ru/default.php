@@ -8,7 +8,10 @@ return [
 		'news' => 'Новости',
 		'lyrics' => 'Произведения',
 		'audio' => 'Аудиокниги',
-		'developed_by' => 'Разработано в компании WebKitchen!',
+		'aboutus' => 'О нас',
+		'gallery' => 'Галерея',
+		'video' => 'Видео',
+		'developed_by' => 'Разработано в компании WebKitchen',
 		'lang' => 'Смена языка',
 		'langs' => [
 			'kk' => 'Казахский',

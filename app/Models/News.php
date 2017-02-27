@@ -23,11 +23,15 @@ class News extends Model
         'updated_at',
     ];
 
-    public static function getNews($limit = 0){
+    public static function getNews($limit = 0, $paginate = false){
       if(app()->getLocale()=='ru') {
-        return News::orderBy('id', 'desc')->where('press',0)->take($limit)->select('id', 'title', 'description', 'anons', 'poster', 'hits', 'created_at')->paginate(12);
+               $news = News::where('press',0)->orderBy('id', 'desc')->select('id', 'title', 'description', 'anons', 'poster', 'hits', 'created_at');
+               $news = $paginate ? $news->paginate(12) : $news->take($limit)->get();
+        return $news;
       } else {
-        return News::orderBy('id', 'desc')->where('press',0)->take($limit)->select('id', 'title_kk as title', 'description_kk as description', 'anons_kk as anons', 'poster', 'hits', 'created_at')->paginate(12);
+        $news = News::where('press',0)->orderBy('id', 'desc')->select('id', 'title_kk as title', 'description_kk as description', 'anons_kk as anons', 'poster', 'hits', 'created_at');
+        $news = $paginate ? $news->paginate(12) : $news->take($limit)->get();
+        return $news;
       }
     }
     public static function getPressNews($limit = 0){

@@ -57,7 +57,6 @@ class Category extends Model
 
     public static function getHomeSelectedCategories($cats=[]) {
         $locale = app()->getLocale();
-
         foreach ($cats as $item) {
             $result[] = Category::where('id',$item)->with(['lyrics' => function($q) use($locale) {
                     if($locale == 'ru') $q->where('lang', 1)->where('is_published', 1)->get();

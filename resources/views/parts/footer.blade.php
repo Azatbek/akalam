@@ -1,7 +1,7 @@
 <footer id="footer" class="hoc clear">
 <div class="display-table">
   @foreach($partners as $item)
-    <div class="col-md-3 col-lg-3 display-cell">
+    <div class="col-md-3 col-sm-6 display-cell">
       <div style="display: flex; align-items: center;justify-content: center;">
         <a href="{{$item->link}}" target="_blank">
           <center><img src="{{url('/'.$item->logo)}}"></center>
