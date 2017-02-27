@@ -12,8 +12,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         App\User::create([
-        		'name' => 'admin',
-        		'email' => 'admin@mail.ru',
+                'name' => 'admin',
+                'email' => 'admin@mail.ru',
+                'password' => bcrypt('Immortal95')
+            ]);
+        App\User::create([
+        		'name' => 'developer',
+        		'email' => 'developer@akalam.kz',
         		'password' => bcrypt('Immortal95')
         	]);
     }

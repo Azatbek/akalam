@@ -9,9 +9,9 @@
         <li class="active"><a href="/">{{trans('default.home.main')}}</a></li>
         <li class="drop"><a href="{{url('/'.app()->getLocale().'/page/about')}}">{{trans('default.home.about')}}</a>
           <ul>
-            <li><a href="/{{app()->getLocale()}}/gallery">{{trans('default.home.aboutus')}}</a></li>
+            <li><a href="/{{app()->getLocale()}}/page/about">{{trans('default.home.about')}}</a></li>
             <li><a href="/{{app()->getLocale()}}/gallery">{{trans('default.home.gallery')}}</a></li>
-            <li><a href="/{{app()->getLocale()}}/videoblog">{{trans('default.home.video')}}</a></li>
+            {{-- <li><a href="/{{app()->getLocale()}}/videoblog">{{trans('default.home.video')}}</a></li> --}}
           </ul>
         </li>
         <!-- <li><a class="drop" href="#">Dropdown</a>

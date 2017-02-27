@@ -10,7 +10,7 @@
      @endif
           <img src="{{url()->to('/').'/newsimg/'.$item->poster}}" alt="">
           <a href="{{url('/'.app()->getLocale().'/news/'.$item->id)}}"><h4 class="heading">{{$item->title}}</h4></a>
-          <p class="btmspace-20">{!! $item->anons !!} [&hellip;]</p>
+          <p class="btmspace-20">{!! strip_tags($item->anons) !!} [&hellip;]</p>
           <footer class="btmspace-15"><a href="{{url('/'.app()->getLocale().'/news/'.$item->id)}}">{{trans(('default.read_more'))}} &raquo;</a></footer>
         </article>
     @endforeach

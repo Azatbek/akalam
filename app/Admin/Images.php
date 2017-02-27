@@ -3,7 +3,7 @@ use App\Models\Images;
 use App\Models\Gallery;
 use SleepingOwl\Admin\Model\ModelConfiguration;
 AdminSection::registerModel(Images::class, function (ModelConfiguration $model) {
-    $model->setTitle('Изображеия галереи');
+    $model->setTitle('Изображения галереи');
     $model->setIcon('fa fa-picture-o  ');
     $model->onDisplay(function () {
         $gallery = new Gallery;
@@ -21,7 +21,7 @@ AdminSection::registerModel(Images::class, function (ModelConfiguration $model) 
         $gal = $gal->pluck('name', 'id')->toArray();
         $form = AdminForm::panel()->addBody(
             AdminFormElement::image('image', 'Рисунок/Сурет'),
-            AdminFormElement::select('gallery_id', 'Галлерея', $gal),
+            AdminFormElement::select('gallery_id', 'Галерея', $gal),
             AdminFormElement::ckeditor('description', 'Описание'),
             AdminFormElement::ckeditor('description_kk', 'Описание на казахском')
         );
