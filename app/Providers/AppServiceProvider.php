@@ -14,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
       view()->composer(
-        ['widgets.home_news', 'widgets.contacts'],
+        ['widgets.home_news'],
         'App\Http\Composers\HomeComposer@compose'
       );
       view()->composer(
@@ -28,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
       view()->composer(
         ['parts.footer'],
         'App\Http\Composers\HomeComposer@popularNews'
+      );
+      view()->composer(
+        ['widgets.contacts'],
+        'App\Http\Composers\HomeComposer@footerAdv'
       );
     }
 

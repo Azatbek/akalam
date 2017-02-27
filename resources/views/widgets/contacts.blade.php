@@ -35,15 +35,15 @@
       </ul>
     </div>
     <div class="one_third">
-      <h4>{{trans('default.home.news')}}</h4>
+      <h4>Реклама</h4>
       <ul class="nospace linklist">
-        @foreach($news as $item)
+        @foreach($advertisement as $item)
         <li>
-          <article>
-            <h5><a href="{{url('/'.app()->getLocale().'/news/'.$item->id)}}">{{$item->title}}</a></h2>
-            <time class="font-xs block btmspace-10">{{$item->created_at}}</time>
-            <p class="nospace">{{str_limit(strip_tags($item->description), 100)}} [&hellip;]</p>
-          </article>
+            @if($item->type == 1) 
+              <iframe width="auto" height="auto" src="https://www.youtube.com/embed/{{$item->src}}" frameborder="0" allowfullscreen></iframe>
+            @else
+              <a href="{{$item->link}}" target="_blank" rel="nofollow"><img src="{{$item->src_pic}}" width="220"/></a>
+            @endif
         </li>
         @endforeach
       </ul>

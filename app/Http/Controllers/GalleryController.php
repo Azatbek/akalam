@@ -49,9 +49,8 @@ class GalleryController extends Controller
      */
     public function show($id)
     {
-        if(app()->getLocale()=='ru') $gallery = Gallery::where('id',$id)->where('is_published',1)->with('images')->first();
-        else $gallery = Gallery::where('id',$id)->where('is_published',1)->with('images')->select('name_kk as name', 'description_kk as description', 'created_at')->first();
-
+        $gallery = Gallery::where('id',$id)->where('is_published',1)->with('images')->first();
+        
         return view('pages.gallery', ['gallery'=>$gallery]);
     }
 

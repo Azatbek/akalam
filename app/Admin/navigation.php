@@ -27,7 +27,8 @@ AdminSection::addMenuPage(\App\Models\AudioCategories::class)->setPriority(5);
 AdminSection::addMenuPage(\App\Models\Audiobook::class)->setPriority(6);
 AdminSection::addMenuPage(\App\Models\Partner::class)->setPriority(8);
 AdminSection::addMenuPage(\App\Models\Gallery::class)->setPriority(9);
-AdminSection::addMenuPage(\App\Models\Images::class)->setPriority(9);
+AdminSection::addMenuPage(\App\Models\Images::class)->setPriority(10);
+AdminSection::addMenuPage(\App\Models\Advertisement::class)->setPriority(11);
 return [
     [
         'title' => 'Административная панель',

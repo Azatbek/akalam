@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<link href="{{ asset('css/layout.css') }}" rel="stylesheet" type="text/css" media="all">
+		<link href="{{ asset('css/jquery.fancybox.css') }}" rel="stylesheet" type="text/css" media="all">
 		<script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
 	<body id="top">
@@ -46,9 +47,18 @@
 		    });
 		  });
 		});
+
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$("a.grouped_elements").fancybox({'width': '','height': '100%','autoSize' : false});
+		});
 		</script>
 		<script src="/js/jquery.backtotop.js"></script>
 		<script src="/js/jquery.mobilemenu.js"></script>
 		<script src="/js/jquery.flexslider-min.js"></script>
+		<script src="/js/jquery.fancybox/source/jquery.fancybox.js"></script>
 	</body>
 </html>

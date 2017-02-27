@@ -1,0 +1,92 @@
+{
+  "_args": [
+    [
+      "jquery.fancybox",
+      "/home/vagrant/Code/akalam"
+    ]
+  ],
+  "_from": "jquery.fancybox@latest",
+  "_id": "jquery.fancybox@2.1.5",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/jquery.fancybox",
+  "_nodeVersion": "6.2.2",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/jquery.fancybox-2.1.5.tgz_1487091736486_0.4978481961879879"
+  },
+  "_npmUser": {
+    "email": "lukasfolmert@gmail.com",
+    "name": "folmert"
+  },
+  "_npmVersion": "3.9.5",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "jquery.fancybox",
+    "raw": "jquery.fancybox",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/jquery.fancybox/-/jquery.fancybox-2.1.5.tgz",
+  "_shasum": "e7176c1ada80c0c6461a2cc149fefe5253e02c04",
+  "_shrinkwrap": null,
+  "_spec": "jquery.fancybox",
+  "_where": "/home/vagrant/Code/akalam",
+  "author": {
+    "name": "fancyapps"
+  },
+  "bugs": {
+    "url": "https://github.com/fancyapps/fancyBox/issues"
+  },
+  "dependencies": {},
+  "description": "fancyBox offers an elegant way to present images, html content and multimedia for webpages",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "e7176c1ada80c0c6461a2cc149fefe5253e02c04",
+    "tarball": "https://registry.npmjs.org/jquery.fancybox/-/jquery.fancybox-2.1.5.tgz"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "homepage": "https://github.com/fancyapps/fancyBox#readme",
+  "keywords": [
+    "lightbox",
+    "effect",
+    "responsive",
+    "modal",
+    "window",
+    "ui"
+  ],
+  "license": "CC-BY-NC-3.0",
+  "licenses": [
+    {
+      "type": "fancyBox",
+      "url": "http://fancyapps.com/fancybox/#license"
+    }
+  ],
+  "main": "source/jquery.fancybox.pack.js",
+  "maintainers": [
+    {
+      "email": "lukasfolmert@gmail.com",
+      "name": "folmert"
+    }
+  ],
+  "name": "jquery.fancybox",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fancyapps/fancyBox.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "title": "fancyapps/fancyBox",
+  "version": "2.1.5"
+}

@@ -3,6 +3,7 @@ namespace App\Http\Composers;
 use App\Models\News;
 use App\Models\Partner;
 use App\Models\Category;
+use App\Models\Advertisement;
 class HomeComposer
 {
     public function compose($view)
@@ -16,9 +17,11 @@ class HomeComposer
     }
     public function popularNews($view)
     {
-      $view->with('news', News::getPopularNews(3));
       $view->with('partners', Partner::getPartners());
-
+    }
+    public function footerAdv($view)
+    {
+      $view->with('advertisement', Advertisement::getAdv(3));
     }
 }
 
